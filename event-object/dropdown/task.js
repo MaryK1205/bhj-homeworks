@@ -1,16 +1,21 @@
-const dropItem = document.querySelector(`.dropdown__value`);
+const dropValue = document.querySelector(`.dropdown__value`);
 const dropList = document.querySelector(`.dropdown__list`)
-let dropItemArray = Array.from(document.querySelectorAll('.dropdown__link'));
+let dropItemArray = Array.from(document.querySelectorAll('.dropdown__item'));
 
 
-dropItem.addEventListener('click', () => dropList.classList.add('dropdown__list_active'));
 
-function dropItemArrayActiv(e) {
-    console.log('Привет');
+dropValue.addEventListener('click', () => dropList.classList.add('dropdown__list_active'));
+
+
+dropItemArray.forEach((item, index) => {
+    item.onclick = () => {
+        dropList.classList.remove('dropdown__list_active');
+        dropValue.textContent = dropItemArray[index].textContent
+        return false;
+    }
 
 }
-
-dropItemArray[1].addEventListener('click', dropItemArrayActiv);
+)
 
 
 
