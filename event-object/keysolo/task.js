@@ -28,11 +28,8 @@ class Game {
 
     let onkey = (e) => {
       const current = this.currentSymbol
-      if (current.textContent == e.key) {
+      if ((current.textContent == e.key) && (e.key != 'Shift')) {
         this.success()
-      }
-      if (e.key === 'Shift') {
-        return
       }
       else {
         this.fail()
