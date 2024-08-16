@@ -1,13 +1,8 @@
-window.addEventListener('scroll', function () {
-    const block = document.querySelectorAll('.reveal')
-    for (let i of block) {
-        const { top, bottom } = i.getBoundingClientRect()
-        if (bottom > 0) {
-            i.classList.add('reveal_active')
-        }
-        if (top < window.innerHeight) {
-            i.classList.add('reveal_active')
-        }
-    }
-}
-)
+window.addEventListener('scroll', event => {
+    const message = document.querySelector('div.reveal')
+    const massageTopX = message.getBoundingClientRect().top;
+    const massageBottomX = message.getBoundingClientRect().bottom;
+    const viewportHeight = window.innerHeight;
+    const condition = (massageTopX < (viewportHeight / 1.5) & massageBottomX >= (viewportHeight / 4))
+    condition ? message.classList.add('reveal_active') : message.classList.remove('reveal_active');
+})
